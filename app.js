@@ -3,16 +3,22 @@ Generate a number password with no repeats or straights (max 10 digits)
 =============================================================================*/
 const pwGen = (() => {
 
-    const n = 4;
+    /*=== Settings ===
+    =============================================================================*/
+    const digits = 4;
     const debug = false;
-    const testOutput = false;
+    const testOutput = 0;
 
+    /*=== DOM Elements ===
+    =============================================================================*/
     const password = document.querySelector(".pw-main__password");
     const generate = document.querySelector(".pw-main__generate");
-    function getRandomInteger(min, max) {
+
+    /*=== Subroutines ===
+    =============================================================================*/
+    function getRandomInteger(min, max){
         return Math.floor(Math.random() * (max - min + 1) ) + min;
     }
-
     function getNumber(str){
         let test = null;
         do {
@@ -22,17 +28,16 @@ const pwGen = (() => {
     }
     function includesNumber(str, test){
         if (str.includes(test)){
-            if (debug) console.log(`Found duplicate ${test}. Generating new number.`);
+            if (debug && testOutput <= 0) console.log(`Found duplicate ${test}. Generating new number.`);
             return true;
         }else {
             return false;
         }
     }
-
     function includesStraight(str){
         const ascending = "0123456789";
         const decending = "9876543210";
-        if (ascending.search(str) > 0 || decending.search(str)> 0){
+        if (ascending.search(str) > -1 || decending.search(str) > -1){
             if (debug) console.log(`Found straight ${str}. Generating new password.`);
             return true;
         }else{
@@ -40,11 +45,13 @@ const pwGen = (() => {
         }
     }
 
-    function generatePassword () {
+    /*=== Main Function ===
+    =============================================================================*/
+    function generatePassword() {
         let pw;
         do {
             pw = "";
-            for (let i = 0; i < n; i++){
+            for (let i = 0; i < digits; i++){
                 pw += getNumber(pw);
             }
         }while (includesStraight(pw))
@@ -52,13 +59,17 @@ const pwGen = (() => {
         return pw;
     }
 
+    /*=== Events ===
+    =============================================================================*/
     generate.addEventListener("click", generatePassword);
     window.addEventListener("load", generatePassword);
 
-    if (testOutput){
+    /*=== Tester ===
+    =============================================================================*/
+    if (testOutput > 0){
         let pwlog = [];
-        for (let i = 0; i < 1000; i++){
-            pwlog.push(generatePassword());
+        for (let i = 0; i < testOutput; i++){
+                pwlog.push(generatePassword());
         }
         console.table(pwlog);
     }
