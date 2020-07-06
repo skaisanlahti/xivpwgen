@@ -1,6 +1,18 @@
 @import "_reset.scss";
 @import "_base.scss";
 
+::-moz-selection{
+    background: white;
+    color: black;
+    text-shadow: none;
+}
+
+::selection {
+    background: white;
+    color: black;
+    text-shadow: none;
+}
+
 body {
     min-height: 100vh;
     font-family: 'Courier New', Courier, monospace;
