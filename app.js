@@ -22,7 +22,6 @@ const pwGen = (() => {
         const ascending = "0123456789";
         const decending = "9876543210";
         if (ascending.search(str) > 0 || decending.search(str)> 0){
-            console.log(`Found straight ${str}`);
             return true;
         }else{
             return false;
