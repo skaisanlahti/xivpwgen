@@ -1,0 +1,53 @@
+@import "_fonts.scss";
+@import "_reset.scss";
+@import "_base.scss";
+
+body {
+    min-height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
+    color: hsl(25,5%,90%);
+    background-color: hsl(145,5%,7%);
+    background-image: linear-gradient(hsl(200,5%,5%),hsl(210,8%,25%));
+}
+
+.pw-header {
+    font-size: 70px;
+    padding: 50px;
+    text-align: center;
+}
+
+.pw-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__password {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 140px;
+        padding: 20px;
+
+    }
+
+    &__generate {
+        position: relative;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 50px;
+        padding: 10px;
+
+        background-color: transparent;
+        border: 1px solid white;
+        color: white;
+
+        &:hover {
+            border: 1px solid hsl(0,0%,70%);
+            color: hsl(0,0%,90%);
+        }
+
+        &:active {
+            top: 2px;
+            border: 1px solid hsl(0,0%,50%);
+            color: hsl(0,0%,70%);
+        }
+    }
+}
