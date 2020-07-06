@@ -1,5 +1,5 @@
 /*=== App overview ===
-Generate 4 number passwords for FFXIV private party finder.
+Generate 4 number passwords
 =============================================================================*/
 const password = document.querySelector(".pw-main__password");
 const generate = document.querySelector(".pw-main__generate");
