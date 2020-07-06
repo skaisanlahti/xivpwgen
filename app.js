@@ -9,7 +9,6 @@ window.addEventListener("load", generatePassword);
 
 function generatePassword () {
     let pw = "";
-
     for (let i = 0; i < 4; i++){
         pw += getRandomInteger(0, 9);
     }
