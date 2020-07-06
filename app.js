@@ -19,18 +19,10 @@ const pwGen = (() => {
     }
 
     function includesStraight(str){
-        if (str === "1234" ||
-            str === "2345" ||
-            str === "3456" ||
-            str === "4567" ||
-            str === "5678" ||
-            str === "6789" ||
-            str === "9876" ||
-            str === "8765" ||
-            str === "7654" ||
-            str === "6543" ||
-            str === "5432" ||
-            str === "4321"){
+        const ascending = "0123456789";
+        const decending = "9876543210";
+        if (ascending.search(str) > 0 || decending.search(str)> 0){
+            console.log(`Found straight ${str}`);
             return true;
         }else{
             return false;
